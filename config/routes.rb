@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  unless Rails.env.production?
+    require 'sw2at-ui'
+    mount Swat::Engine => '/swat'
+  end
+
 end
